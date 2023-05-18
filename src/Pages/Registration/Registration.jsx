@@ -1,19 +1,53 @@
-import React from 'react';
-import google from '../../assets/login/google.svg'
-import { FaUserAlt,FaImage } from "react-icons/fa";
+import React, { useState } from "react";
+import google from "../../assets/login/google.svg";
+import { FaUserAlt, FaImage } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./Registration.css";
 const Registration = () => {
-    const handleSignUp = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const photo = form.photo.value;
-        const password = form.password.value;
-        console.log(name,email,photo,password);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState("");
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    const confirm = form.confirm.value;
+    console.log(name, email, photo, password, confirm);
+
+    if(!/(?=.{6,})/.test(password)){
+        return setError('Password must be at least 6 characters')
     }
-    return (
-        <div>
+
+    if(password != confirm){
+        return setError('Password did not match')
+    }
+  };
+
+  const handlePasswordOnChange = (event) => {
+    const password = event.target.value;
+
+    if (
+      /(?=.{10,})/.test(
+        password
+      )
+    ) {
+      setPasswordStrength("Strong password");
+    } else if (
+      /(?=.{7,})/.test(
+        password
+      )
+    ) {
+      setPasswordStrength("Medium password");
+    } else {
+      setPasswordStrength("Weak password");
+    }
+  };
+  return (
+    <div>
       <script
         src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
         defer
@@ -241,7 +275,7 @@ const Registration = () => {
                 <h1 className="font-bold text-3xl text-gray-900">LOGIN</h1>
               </div>
               <form onSubmit={handleSignUp}>
-              <div className="flex -mx-3">
+                <div className="flex -mx-3">
                   <div className="w-full px-3 mb-5">
                     <label htmlFor="" className="text-xs font-semibold px-1">
                       Name
@@ -302,7 +336,7 @@ const Registration = () => {
                   </div>
                 </div>
                 <div className="flex -mx-3">
-                  <div className="w-full px-3 mb-12">
+                  <div className="w-full px-3 mb-5">
                     <label htmlFor="" className="text-xs font-semibold px-1">
                       Password
                     </label>
@@ -315,35 +349,79 @@ const Registration = () => {
                         name="password"
                         required
                         id="password"
+                        onChange={handlePasswordOnChange}
                         className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                         placeholder="************"
                       />
                     </div>
+                    <p
+                      className={
+                        passwordStrength === "Strong password"
+                          ? "strong-color"
+                          : passwordStrength === "Medium password"
+                          ? "medium-color"
+                          : "weak-color"
+                      }
+                    >
+                      {passwordStrength}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex -mx-3">
+                  <div className="w-full px-3 mb-12">
+                    <label htmlFor="" className="text-xs font-semibold px-1">
+                      Confirm Password
+                    </label>
+                    <div className="flex">
+                      <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                        <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                      </div>
+                      <input
+                        type="password"
+                        name="confirm"
+                        required
+                        id="confirm"
+                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="************"
+                      />
+                    </div>
+                    <p className="error">{error}</p>
                   </div>
                 </div>
                 <div className="flex -mx-3">
                   <div className="w-full px-3 mb-5">
-                    <button className="block w-full max-w-xs mx-auto login rounded-full px-3 py-3 font-semibold login bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-105 transition duration-500" type='submit'>
+                    <button
+                      className="block w-full max-w-xs mx-auto login rounded-full px-3 py-3 font-semibold login bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-105 transition duration-500"
+                      type="submit"
+                    >
                       LOGIN NOW
                     </button>
                   </div>
                 </div>
               </form>
               <div className="space-y-5">
-                <p className=" font-semibold text-black text-center">Or Sign in With</p>
+                <p className=" font-semibold text-black text-center">
+                  Or Sign in With
+                </p>
                 <div className="flex items-center lg:gap-10 rounded-full border-black border-2 py-[4px] pl-5 pr-12 w-fit mx-auto text-lg cursor-pointer  hover:scale-105 transition duration-500">
-                    <img className="w-[25px]" src={google} alt="" />
-                    <p className="font-semibold text-black">Continue with Google</p>
+                  <img className="w-[25px]" src={google} alt="" />
+                  <p className="font-semibold text-black">
+                    Continue with Google
+                  </p>
                 </div>
-                <p className="text-center font-semibold text-black">Alredy have an account? <span className="font-bold text-[#0066fff1] cursor-pointer "><Link to="/login">Login</Link></span></p>
+                <p className="text-center font-semibold text-black">
+                  Alredy have an account?{" "}
+                  <span className="font-bold text-[#0066fff1] cursor-pointer ">
+                    <Link to="/login">Login</Link>
+                  </span>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-    );
+  );
 };
 
 export default Registration;

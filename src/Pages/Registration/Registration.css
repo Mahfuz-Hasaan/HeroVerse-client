@@ -1,0 +1,43 @@
+.error{
+    background-color: rgb(245, 25, 25);
+    width: fit-content;
+    padding: 3px 50px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 3px;background-color: red;
+}
+.strong-color{
+    background-color: rgb(16, 122, 16);
+    width: fit-content;
+    padding: 3px 50px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+.medium-color{
+    background-color: rgb(32, 46, 173);
+    width: fit-content;
+    padding: 3px 50px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+.weak-color{
+    background-color: rgb(245, 25, 25);
+    width: fit-content;
+    padding: 3px 50px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+.success{
+    color: green;
+}
