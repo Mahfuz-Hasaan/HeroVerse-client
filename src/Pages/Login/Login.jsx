@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import google from '../../assets/login/google.svg'
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 const Login = () => {
+    const [error,setError] = useState("");
+    const {signIn} = useContext(AuthContext)
   const handleLogin = event =>{
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email,password);
+    setError("")
+     signIn(email,password)
+     .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+     })
+     .catch(error =>{
+        console.log(error.message);
+        setError(error.message)
+     })
   }
 
   return (
@@ -278,6 +291,7 @@ const Login = () => {
                         placeholder="************"
                       />
                     </div>
+                    <p>{error}</p>
                   </div>
                 </div>
                 <div className="flex -mx-3">

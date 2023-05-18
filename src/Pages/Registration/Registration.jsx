@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import google from "../../assets/login/google.svg";
 import { FaUserAlt, FaImage } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Registration.css";
+import { AuthContext } from "../../Providers/AuthProvider";
 const Registration = () => {
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
+  const {createUser} = useContext(AuthContext)
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -16,8 +17,9 @@ const Registration = () => {
     const photo = form.photo.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
-    console.log(name, email, photo, password, confirm);
+    // console.log(name, email, photo, password, confirm);
 
+    setError("")
     if(!/(?=.{6,})/.test(password)){
         return setError('Password must be at least 6 characters')
     }
@@ -25,6 +27,16 @@ const Registration = () => {
     if(password != confirm){
         return setError('Password did not match')
     }
+
+    createUser(email,password)
+    .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+    })
+    .catch(error => {
+        setError(error.message)
+        console.log(error.message);
+    })
   };
 
   const handlePasswordOnChange = (event) => {
@@ -71,7 +83,7 @@ const Registration = () => {
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"
-                height="auto"
+                height="100%"
                 viewBox="0 0 744.84799 747.07702"
               >
                 <path
