@@ -39,7 +39,8 @@ const Login = () => {
      })
      .catch(error =>{
         console.log(error.message);
-        setError(error.message)
+        setError("Invalid Email or Password!!")
+        
      })
   }
 
@@ -331,7 +332,7 @@ const Login = () => {
                         placeholder="************"
                       />
                     </div>
-                    <p>{error}</p>
+                    <p className="error">{error}</p>
                   </div>
                 </div>
                 <div className="flex -mx-3">
