@@ -336,7 +336,7 @@ const Login = () => {
                 </div>
                 <div className="flex -mx-3">
                   <div className="w-full px-3 mb-5">
-                    <button className="block w-full max-w-xs mx-auto login rounded-full px-3 py-3 font-semibold login bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-105 transition duration-500" type="submit">
+                    <button className="block w-full max-w-xs mx-auto login rounded-full px-3 py-3 font-semibold login bg-gradient-to-r from-cyan-500 to-blue-500 text-white bg-cyan-500 shadow-lg shadow-cyan-500/50 hover:scale-105 transition duration-500 " type="submit">
                       LOGIN NOW
                     </button>
                   </div>
@@ -344,7 +344,7 @@ const Login = () => {
               </form>
               <div className="space-y-5">
                 <p className=" font-semibold text-black text-center">Or Sign in With</p>
-                <div className="flex items-center lg:gap-10 rounded-full border-black border-2 py-[4px] pl-5 pr-12 w-fit mx-auto text-lg cursor-pointer  hover:scale-105 transition duration-500" onClick={handleGoogleLogin}>
+                <div className="flex items-center lg:gap-10 rounded-full drop-shadow-2xl border-2 py-[4px] pl-5 pr-12 w-fit mx-auto text-lg cursor-pointer  hover:scale-105 transition duration-500" onClick={handleGoogleLogin}>
                     <img className="w-[25px]" src={google} alt="" />
                     <p className="font-semibold text-black">Continue with Google</p>
                 </div>

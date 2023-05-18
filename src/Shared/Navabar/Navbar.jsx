@@ -98,7 +98,7 @@ const Navbar = () => {
             <>
               <div className="dropdown dropdown-bottom dropdown-end">
                 <label tabIndex={0} className="">
-                  <img className="w-[40px] rounded-full cursor-pointer" src={user.photoURL} alt="" />
+                  <img className="w-[40px] rounded-full cursor-pointer user-img drop-shadow-xl" src={user.photoURL} alt="" />
                 </label>
                 <ul tabIndex={0} className="dropdown-content menu py-2 px-3" onClick={handleLogOut}>
                     <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
