@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import google from '../../assets/login/google.svg'
 import "./Login.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 const Login = () => {
@@ -17,6 +19,17 @@ const Login = () => {
      .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        toast.success('Successfully signed in', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        form.reset();
      })
      .catch(error =>{
         console.log(error.message);
@@ -314,7 +327,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-
+        <ToastContainer></ToastContainer>
     </div>
   );
 };
