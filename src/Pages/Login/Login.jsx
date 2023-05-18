@@ -1,14 +1,20 @@
 import React, { useContext, useState } from "react";
 import google from '../../assets/login/google.svg'
 import "./Login.css";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import app from "../../firebase/firebase.config";
 const Login = () => {
     const [error,setError] = useState("");
-    const {signIn} = useContext(AuthContext)
-  const handleLogin = event =>{
+    const auth = getAuth(app);
+    const {signIn} = useContext(AuthContext);
+    const provider = new GoogleAuthProvider();
+
+
+    const handleLogin = event =>{
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -35,6 +41,27 @@ const Login = () => {
         console.log(error.message);
         setError(error.message)
      })
+  }
+
+  const handleGoogleLogin = () =>{
+    console.log('clicked');
+    signInWithPopup(auth,provider)
+    .then(result => {
+        const loggedUser = result.user;
+        toast.success('Successfully signed in', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            }); 
+    })
+    .catch(error => {
+        setError(error);
+    })
   }
 
   return (
@@ -317,7 +344,7 @@ const Login = () => {
               </form>
               <div className="space-y-5">
                 <p className=" font-semibold text-black text-center">Or Sign in With</p>
-                <div className="flex items-center lg:gap-10 rounded-full border-black border-2 py-[4px] pl-5 pr-12 w-fit mx-auto text-lg cursor-pointer  hover:scale-105 transition duration-500">
+                <div className="flex items-center lg:gap-10 rounded-full border-black border-2 py-[4px] pl-5 pr-12 w-fit mx-auto text-lg cursor-pointer  hover:scale-105 transition duration-500" onClick={handleGoogleLogin}>
                     <img className="w-[25px]" src={google} alt="" />
                     <p className="font-semibold text-black">Continue with Google</p>
                 </div>
