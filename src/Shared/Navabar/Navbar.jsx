@@ -90,6 +90,22 @@ const Navbar = () => {
                 Blogs
               </Link>
             </li>
+            <li className="font-bold text-cyan-900">
+            {
+              user && 
+              <Link style={{ backgroundColor: "transparent" }} to="/addtoy">
+                  Add Toy
+              </Link>
+            }
+            </li>
+            <li className="font-bold text-cyan-900">
+            {
+              user && 
+              <Link style={{ backgroundColor: "transparent" }} to="/mytoys">
+                  My Toys
+              </Link>
+            }
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
