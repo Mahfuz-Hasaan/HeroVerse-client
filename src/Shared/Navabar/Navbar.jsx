@@ -43,11 +43,11 @@ const Navbar = () => {
 
           <div className="logo flex lg:flex-row flex-col bg-yellow-300 p-5 gap-3 rounded-full items-center cursor-pointer">
             <Link>
-              <img src={logo} className="w-12" alt="" />
+              <img src={logo} className="lg:w-12 w-8" alt="" />
             </Link>
-            <div className="lg:text-xl text-sm text-black font-bold flex font-serif">
+            <div className="lg:text-xl text-black font-bold flex font-serif">
               <p>
-                HERO<span className="text-4xl text-md">V</span>ERSE
+                HERO<span className="lg:text-4xl text-xl">V</span>ERSE
               </p>
             </div>
           </div>
@@ -72,9 +72,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
+              Login
+            </button>
+          </Link>
         </div>
       </div>
     </div>
