@@ -1,18 +1,19 @@
-import React from "react";
+import React from 'react';
 import google from '../../assets/login/google.svg'
-import "./Login.css";
+import { FaUserAlt,FaImage } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const Login = () => {
-  const handleLogin = event =>{
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email,password);
-  }
-
-  return (
-    <div>
+const Registration = () => {
+    const handleSignUp = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password = form.password.value;
+        console.log(name,email,photo,password);
+    }
+    return (
+        <div>
       <script
         src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
         defer
@@ -36,7 +37,7 @@ const Login = () => {
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"
-                // height="auto"
+                height="auto"
                 viewBox="0 0 744.84799 747.07702"
               >
                 <path
@@ -239,7 +240,27 @@ const Login = () => {
               <div className="text-center mb-5">
                 <h1 className="font-bold text-3xl text-gray-900">LOGIN</h1>
               </div>
-              <form onSubmit={handleLogin}>
+              <form onSubmit={handleSignUp}>
+              <div className="flex -mx-3">
+                  <div className="w-full px-3 mb-5">
+                    <label htmlFor="" className="text-xs font-semibold px-1">
+                      Name
+                    </label>
+                    <div className="flex">
+                      <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center text-gray-400 justify-center">
+                        <FaUserAlt></FaUserAlt>
+                      </div>
+                      <input
+                        type="name"
+                        name="name"
+                        required
+                        id="name"
+                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="johnsmith the example"
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className="flex -mx-3">
                   <div className="w-full px-3 mb-5">
                     <label htmlFor="" className="text-xs font-semibold px-1">
@@ -256,6 +277,26 @@ const Login = () => {
                         id="email"
                         className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                         placeholder="johnsmith@example.com"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex -mx-3">
+                  <div className="w-full px-3 mb-5">
+                    <label htmlFor="" className="text-xs font-semibold px-1">
+                      Photo Url
+                    </label>
+                    <div className="flex">
+                      <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center text-gray-400 justify-center">
+                        <FaImage></FaImage>
+                      </div>
+                      <input
+                        type="photo"
+                        name="photo"
+                        required
+                        id="photo"
+                        className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="https:///YXxSqM7/superhero.png"
                       />
                     </div>
                   </div>
@@ -282,7 +323,7 @@ const Login = () => {
                 </div>
                 <div className="flex -mx-3">
                   <div className="w-full px-3 mb-5">
-                    <button className="block w-full max-w-xs mx-auto login rounded-full px-3 py-3 font-semibold login bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-105 transition duration-500" type="submit">
+                    <button className="block w-full max-w-xs mx-auto login rounded-full px-3 py-3 font-semibold login bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-105 transition duration-500" type='submit'>
                       LOGIN NOW
                     </button>
                   </div>
@@ -294,7 +335,7 @@ const Login = () => {
                     <img className="w-[25px]" src={google} alt="" />
                     <p className="font-semibold text-black">Continue with Google</p>
                 </div>
-                <p className="text-center font-semibold text-black">Don't have an account? <span className="font-bold text-[#0066fff1] cursor-pointer"><Link to="/signup">Sign Up</Link></span></p>
+                <p className="text-center font-semibold text-black">Alredy have an account? <span className="font-bold text-[#0066fff1] cursor-pointer "><Link to="/login">Login</Link></span></p>
               </div>
             </div>
           </div>
@@ -302,7 +343,7 @@ const Login = () => {
       </div>
 
     </div>
-  );
+    );
 };
 
-export default Login;
+export default Registration;
