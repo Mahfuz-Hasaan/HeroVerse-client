@@ -17,10 +17,12 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
-    <div className="flex w-10/12 mx-auto my-10 items-center">
-      <div className="flex-1 rounded-lg pr-10 pl-2 space-y-5">
-        <p className="text-5xl font-bold text-indigo-500 font-serif">WELCOME HERO VERSE</p>
-        <p className="w-10/12 font-serif">
+    <div className="flex lg:flex-row flex-col-reverse mx-auto lg:w-10/12 w-[350px]  lg:my-10 gap-y-20 lg:items-center">
+        <div className="flex-1 rounded-lg pr-10 pl-2 space-y-5">
+        <p className="lg:text-5xl text-3xl font-bold text-indigo-500 font-serif">
+          WELCOME HERO VERSE
+        </p>
+        <p className="lg:w-10/12 font-serif">
           the premier online shop for ADC and Marvel toy enthusiasts. We are
           dedicated to bringing you the ultimate collection of action figures,
           merchandise, and collectibles, allowing you to embark on epic
@@ -30,8 +32,10 @@ const Banner = () => {
           allowing you to embark on epic adventures alongside your favorite
           heroes
         </p>
-        <div className="blur" style={{ backgroundColor: "rgb(238 210 255)" }}>
-        </div>
+        <div
+          className="blur"
+          style={{ backgroundColor: "rgb(238 210 255)" }}
+        ></div>
         <div
           className="blur"
           style={{
@@ -42,8 +46,10 @@ const Banner = () => {
             left: "-10%",
           }}
         ></div>
-        <div className="right-blur" style={{ backgroundColor: "rgb(238 210 255)" }}>
-        </div>
+        <div
+          className="right-blur"
+          style={{ backgroundColor: "rgb(238 210 255)" }}
+        ></div>
         <div
           className="right-blur"
           style={{
@@ -55,16 +61,14 @@ const Banner = () => {
           }}
         ></div>
         <div>
-        <Link to="/about">
-          <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
-            About Us
-          </button>
-        </Link>
+          <Link to="/about">
+            <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
+              About Us
+            </button>
+          </Link>
+        </div>
       </div>
-      </div>
-      
-      <div></div>
-      <div className="flex-1">
+      <div className="flex-1 ">
         <AutoplaySlider
           play={true}
           cancelOnInteraction={false}
@@ -81,6 +85,7 @@ const Banner = () => {
           <div data-src={cover_8} />
         </AutoplaySlider>
       </div>
+      <div></div>
     </div>
   );
 };
