@@ -1,31 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/superhero.svg";
 import "./Navbar.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Providers/AuthProvider";
-const Navbar = () => {
-  const {user,logOut} = useContext(AuthContext);
-  const handleLogOut = () =>{
-    logOut()
-    .then(() => {
-      toast.success("Successfully signed out", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    })
-    .catch((error) => console.log(error));
 
-  }
+const Navbar = () => {
+  const [userName, setUserName] = useState("");
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Successfully signed out", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    if (user) {
+      setUserName(user.displayName);
+    }
+  }, [user]);
+
   return (
-    <div className="bg-zinc-200  drop-shadow-xl">
+    <div className="">
       <div className="navbar bg-base-100 lg:px-10 ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -91,47 +100,51 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="font-bold text-cyan-900">
-            {
-              user && 
-              <Link style={{ backgroundColor: "transparent" }} to="/addtoy">
+              {user && (
+                <Link style={{ backgroundColor: "transparent" }} to="/addtoy">
                   Add Toy
-              </Link>
-            }
+                </Link>
+              )}
             </li>
             <li className="font-bold text-cyan-900">
-            {
-              user && 
-              <Link style={{ backgroundColor: "transparent" }} to="/mytoys">
+              {user && (
+                <Link style={{ backgroundColor: "transparent" }} to="/mytoys">
                   My Toys
-              </Link>
-            }
+                </Link>
+              )}
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          {
-            user ? 
-            <>
-              <div className="dropdown dropdown-bottom dropdown-end">
-                <label tabIndex={0} className="">
-                  <img className="w-[40px] rounded-full cursor-pointer user-img drop-shadow-xl" src={user.photoURL} alt="" />
-                </label>
-                <ul tabIndex={0} className="dropdown-content menu py-2 px-3" onClick={handleLogOut}>
-                    <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
+          {user ? (
+            <div className="dropdown dropdown-bottom dropdown-end">
+              <label tabIndex={0} className="">
+                <img
+                  className="w-[40px] rounded-full cursor-pointer user-img drop-shadow-xl"
+                  src={user.photoURL}
+                  alt=""
+                  title={userName}
+                />
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu py-2 px-3"
+                onClick={handleLogOut}
+              >
+                <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
                   Logout
-                  </button>    
-                </ul>
-              </div>
+                </button>
+              </ul>
+            </div>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
+                  Login
+                </button>
+              </Link>
             </>
-            :
-            <> 
-            <Link to="/login">
-              <button className="login-btn px-4 py-2 rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500">
-                Login
-              </button>
-            </Link>
-            </>
-          }
+          )}
         </div>
       </div>
       <ToastContainer></ToastContainer>
