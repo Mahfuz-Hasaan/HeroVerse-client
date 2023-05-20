@@ -81,6 +81,7 @@ const UpdateToys = () => {
                   placeholder="Seller Name*"
                   name="sellername"
                   defaultValue={sellerName}
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -88,6 +89,7 @@ const UpdateToys = () => {
                   placeholder="Email*"
                   defaultValue={user.email}
                   name="email"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -95,6 +97,7 @@ const UpdateToys = () => {
                   placeholder="Toy Name*"
                   name="toyname"
                   defaultValue={toyName}
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -102,6 +105,7 @@ const UpdateToys = () => {
                   placeholder="Toy Image URL*"
                   name="toyimage"
                   defaultValue={toyImage}
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -109,6 +113,7 @@ const UpdateToys = () => {
                   placeholder="Sub-Category*"
                   name="subcatagory"
                   defaultValue={subCategory}
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -116,6 +121,7 @@ const UpdateToys = () => {
                   placeholder="Price*"
                   name="price"
                   defaultValue={price}
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -124,6 +130,7 @@ const UpdateToys = () => {
                   placeholder="Rating*"
                   name="rating"
                   defaultValue={rating}
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -131,12 +138,14 @@ const UpdateToys = () => {
                   placeholder="Available Quantity*"
                   name="quantity"
                   defaultValue={quantity}
+                  required
                 />
               </div>
               <div className="my-4">
                 <textarea
                   placeholder="Detail Description*"
                   name="details"
+                  required
                   defaultValue={details}
                   className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                 ></textarea>

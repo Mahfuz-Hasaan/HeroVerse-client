@@ -68,6 +68,7 @@ const AddToy = () => {
                   type="text"
                   placeholder="Seller Name*"
                   name="sellername"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -75,30 +76,35 @@ const AddToy = () => {
                   placeholder="Email*"
                   defaultValue={user.email}
                   name="email"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                   type="text"
                   placeholder="Toy Name*"
                   name="toyname"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                   type="text"
                   placeholder="Toy Image URL*"
                   name="toyimage"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                   type="text"
                   placeholder="Sub-Category*"
                   name="subcatagory"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                   type="number"
                   placeholder="Price*"
                   name="price"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
@@ -106,18 +112,21 @@ const AddToy = () => {
                   pattern="[0-9]+([.,][0-9]+)?"
                   placeholder="Rating*"
                   name="rating"
+                  required
                 />
                 <input
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                   type="number"
                   placeholder="Available Quantity*"
                   name="quantity"
+                  required
                 />
               </div>
               <div className="my-4">
                 <textarea
                   placeholder="Detail Description*"
                   name="details"
+                  required
                   className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline font-semibold text-lg"
                 ></textarea>
               </div>
