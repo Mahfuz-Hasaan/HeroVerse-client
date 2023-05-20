@@ -12,14 +12,14 @@
   }
   .right-blur{
     position: absolute;
-  width: 20rem;
+  width: 10rem;
   height: 30rem;
   border-radius: 50%;
   background: #edd0ff;
   filter: blur(212px);
   z-index: -9;
   top: 48%;
-  right: -10%;
+  right: 2%;
   filter: blur(92px);
   }
   

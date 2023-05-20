@@ -58,9 +58,9 @@ const ImageGallary = () => {
           style={{
             background: "#C1F5FF",
             top: "15rem",
-            width: "20rem",
+            width: "10rem",
             height: "25rem",
-            right: "-10%",
+            right: "2%",
           }}
         ></div>
     </div>

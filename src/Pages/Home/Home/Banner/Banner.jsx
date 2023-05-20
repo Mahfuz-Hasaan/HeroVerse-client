@@ -1,9 +1,8 @@
 import React from "react";
-import AwesomeSlider from "react-awesome-slider";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
-import "react-awesome-slider/dist/styles.css";
+import AwesomeSlider from 'react-awesome-slider';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import 'react-awesome-slider/dist/styles.css';
 
-import "./Banner.css";
 import cover_1 from "../../../../assets/cover/batman.jpg";
 import cover_2 from "../../../../assets/cover/captain-america.jpg";
 import cover_3 from "../../../../assets/cover/dc.jpg";
@@ -13,12 +12,12 @@ import cover_6 from "../../../../assets/cover/ironmanr.jpg";
 import cover_7 from "../../../../assets/cover/marvel.jpg";
 import cover_8 from "../../../../assets/cover/robot.jpg";
 import { Link } from "react-router-dom";
-
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Banner = () => {
-  const AutoplaySlider = withAutoplay(AwesomeSlider);
+  
   return (
     <div className="flex lg:flex-row flex-col-reverse mx-auto lg:w-10/12 w-[350px]  lg:my-10 gap-y-20 lg:items-center">
-        <div className="flex-1 rounded-lg pr-10 pl-2 space-y-5">
+      <div className="flex-1 rounded-lg pr-10 pl-2 space-y-5">
         <p className="lg:text-5xl text-3xl font-bold text-indigo-500 font-serif">
           WELCOME HERO VERSE
         </p>
@@ -43,7 +42,7 @@ const Banner = () => {
             top: "17rem",
             width: "21rem",
             height: "11rem",
-            left: "-10%",
+            left: "10%",
           }}
         ></div>
         <div
@@ -57,7 +56,7 @@ const Banner = () => {
             top: "17rem",
             width: "21rem",
             height: "11rem",
-            right: "-10%",
+            right: "2%",
           }}
         ></div>
         <div>
@@ -69,11 +68,12 @@ const Banner = () => {
         </div>
       </div>
       <div className="flex-1 ">
+   
         <AutoplaySlider
           play={true}
           cancelOnInteraction={false}
-          interval={3000}
-          cssModule={AutoplaySlider}
+          interval={4000}
+          
         >
           <div data-src={cover_1} />
           <div data-src={cover_2} />
@@ -84,6 +84,7 @@ const Banner = () => {
           <div data-src={cover_7} />
           <div data-src={cover_8} />
         </AutoplaySlider>
+        
       </div>
       <div></div>
     </div>
