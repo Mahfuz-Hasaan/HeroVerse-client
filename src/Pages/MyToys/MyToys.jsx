@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import AllMyToysTable from "../../SubPages/AllMyToysTable/AllMyToysTable";
+import Swal from "sweetalert2";
 
 
 const MyToys = () => {
@@ -12,6 +13,37 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setUsertoy(data));
   }, []);
+
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/addedToys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your toy has been deleted.", "success");
+              // Update the state after successful deletion
+              setUsertoy((prevUsertoy) =>
+                prevUsertoy.filter((singleUserToy) => singleUserToy._id !== id)
+              );
+            }
+          });
+      }
+    });
+  };
+
+
   return (
     <div>
       <div className="my-20">
@@ -34,6 +66,7 @@ const MyToys = () => {
                 <AllMyToysTable
                   key={alltoy._id}
                   alltoy={alltoy}
+                  handleDelete={handleDelete}
                 ></AllMyToysTable>
               ))}
             </tbody>

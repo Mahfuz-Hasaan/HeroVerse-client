@@ -10,8 +10,8 @@ const SingleToyTable = ({alltoy}) => {
         <td>{sellerName}</td>
         <td>{toyName}</td>
         <td>{subCategory}</td>
-        <td>{price}</td>
         <td>{quantity}</td>
+        <td>{price}</td>
         <td>
             <Link to={`/alltoys/${_id}`}>
                 <button className="button p-2 rounded-lg">View Details</button>
