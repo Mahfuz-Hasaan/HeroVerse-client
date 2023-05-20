@@ -4,12 +4,12 @@ import SingleToyTable from "../../SubPages/SingleToyTable/SingleToyTable";
 
 const AllToys = () => {
   const allToys = useLoaderData();
-  
+  const limitedToys = allToys.slice(0, 20);
   return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="table table-compact w-full">
-          <thead>
+    <div className="my-20">
+      <div className="">
+        <table className="table table-compact w-10/12 mx-auto">
+          <thead className="text-center">
             <tr>
               <th></th>
               <th>Seller Name</th>
@@ -20,15 +20,15 @@ const AllToys = () => {
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-center">
             {
-                allToys.map(alltoy => <SingleToyTable
+                limitedToys.map(alltoy => <SingleToyTable
                 key={alltoy._id}
                 alltoy={alltoy}
                 ></SingleToyTable>)
             }
           </tbody>
-          <tfoot>
+          <tfoot className="text-center">
             <tr>
             <th></th>
               <th>Seller Name</th>
