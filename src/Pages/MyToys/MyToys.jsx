@@ -12,7 +12,7 @@ const MyToys = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setUsertoy(data));
-  }, []);
+  }, [url]);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -43,7 +43,6 @@ const MyToys = () => {
     });
   };
 
-
   return (
     <div>
       <div className="my-20">
@@ -67,6 +66,7 @@ const MyToys = () => {
                   key={alltoy._id}
                   alltoy={alltoy}
                   handleDelete={handleDelete}
+                  
                 ></AllMyToysTable>
               ))}
             </tbody>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const AllMyToysTable = ({ alltoy,handleDelete }) => {
   const {
@@ -30,9 +31,11 @@ const AllMyToysTable = ({ alltoy,handleDelete }) => {
         <td>{price}</td>
         <td>{quantity}</td>
         <td>
+          <Link to={`/updatetoys/${_id}`}>
           <button className="button rounded-lg text-black font-bold font-serif hover:scale-110 transition duration-500 p-2">
             Update
           </button>
+          </Link>
         </td>
         <td>
           <button
