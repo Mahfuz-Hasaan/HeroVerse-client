@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 import "./Registration.css";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
 const Registration = () => {
+  useTitle('Registration')
   const [error, setError] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
-  const {createUser} = useContext(AuthContext)
-
+  const {createUser} = useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -432,15 +433,6 @@ const Registration = () => {
                 </div>
               </form>
               <div className="space-y-5">
-                <p className=" font-semibold text-black text-center">
-                  Or Sign in With
-                </p>
-                <div className="flex items-center lg:gap-10 rounded-full drop-shadow-2xl border-2 py-[4px] pl-5 pr-12 w-fit mx-auto text-lg cursor-pointer  hover:scale-105 transition duration-500">
-                  <img className="w-[25px]" src={google} alt="" />
-                  <p className="font-semibold text-black">
-                    Continue with Google
-                  </p>
-                </div>
                 <p className="text-center font-semibold text-black">
                   Alredy have an account?{" "}
                   <span className="font-bold text-[#0066fff1] cursor-pointer ">

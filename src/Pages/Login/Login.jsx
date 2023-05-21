@@ -7,13 +7,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import app from "../../firebase/firebase.config";
+import useTitle from "../../hooks/useTitle";
 const Login = () => {
     const [error,setError] = useState("");
     const auth = getAuth(app);
     const {signIn} = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
     const from = location.state?.from?.pathname || '/'
-
+    useTitle('Login')
 
     const handleLogin = event =>{
     event.preventDefault();

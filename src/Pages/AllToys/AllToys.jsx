@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleToyTable from "../../SubPages/SingleToyTable/SingleToyTable";
 import "./AllToys.css";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const allToys = useLoaderData();
+  useTitle("AllToys")
   const limitedToys = allToys.slice(0, 20);
 
   const [searchQuery, setSearchQuery] = useState("");
