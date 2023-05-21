@@ -58,16 +58,35 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-
-              <li>
-                <a>Item 3</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              <li className="font-bold text-cyan-900 focus:bg-transparent">
+              <Link style={{ backgroundColor: "transparent" }} to="/">
+                Home
+              </Link>
+            </li>
+            <li className="font-bold text-cyan-900">
+              <Link style={{ backgroundColor: "transparent" }} to="/alltoys">
+                All Toys
+              </Link>
+            </li>
+            <li className="font-bold text-cyan-900">
+              <Link style={{ backgroundColor: "transparent" }} to="/blog">
+                Blogs
+              </Link>
+            </li>
+            <li className="font-bold text-cyan-900">
+              {user && (
+                <Link style={{ backgroundColor: "transparent" }} to="/addtoy">
+                  Add Toy
+                </Link>
+              )}
+            </li>
+            <li className="font-bold text-cyan-900">
+              {user && (
+                <Link style={{ backgroundColor: "transparent" }} to="/mytoys">
+                  My Toys
+                </Link>
+              )}
+            </li>
             </ul>
           </div>
 

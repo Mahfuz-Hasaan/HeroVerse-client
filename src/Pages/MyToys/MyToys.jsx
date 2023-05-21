@@ -4,16 +4,19 @@ import AllMyToysTable from "../../SubPages/AllMyToysTable/AllMyToysTable";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 
-
 const MyToys = () => {
-  useTitle("Mytoys")
+  useTitle("Mytoys");
   const [usertoy, setUsertoy] = useState([]);
   const { user } = useContext(AuthContext);
   const url = `https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys?email=${user?.email}`;
+
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setUsertoy(data));
+      .then((data) => {
+        const sortedToys = data.sort((a, b) => a.price - b.price);
+        setUsertoy(sortedToys);
+      });
   }, [url]);
 
   const handleDelete = (id) => {
@@ -68,8 +71,7 @@ const MyToys = () => {
                   key={alltoy._id}
                   alltoy={alltoy}
                   handleDelete={handleDelete}
-                  
-                ></AllMyToysTable>
+                />
               ))}
             </tbody>
           </table>

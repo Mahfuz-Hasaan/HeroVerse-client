@@ -5,6 +5,7 @@ import ReactTabs from './ReactTabs/ReactTabs';
 import LocalTIme from './LocalTIme/LocalTIme';
 import Marquee from 'react-fast-marquee';
 import useTitle from '../../../hooks/useTitle';
+import MarqueeTag from './Marquee/MarqueeTag';
 
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
             <LocalTIme></LocalTIme>
             <ImageGallary></ImageGallary>
             <ReactTabs></ReactTabs>
-            <Marquee></Marquee>
+            <MarqueeTag></MarqueeTag>
         </div>
     );
 };

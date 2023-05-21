@@ -188,14 +188,7 @@ const Footer = () => {
                     Mobile : 01232323212
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                  >
-                    Lnkdin : https://www.linkedin.com/feed/
-                  </a>
-                </li>
+      
               </ul>
             </div>
           </div>
