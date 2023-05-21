@@ -48,17 +48,17 @@ const router = createBrowserRouter([
         {
           path : '/alltoys',
           element : <AllToys></AllToys>,
-          loader : ({params}) => fetch('http://localhost:5000/addedToys'),
+          loader : ({params}) => fetch('https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys'),
         },
         {
           path : '/alltoys/:id',
           element : <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
-          loader : ({params}) => fetch(`http://localhost:5000/addedToys/${params.id}`),
+          loader : ({params}) => fetch(`https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys/${params.id}`),
         },
         {
           path : '/updatetoys/:id',
           element : <UpdateToys></UpdateToys>,
-          loader : ({params})=> fetch(`http://localhost:5000/addedToys/${params.id}`)
+          loader : ({params})=> fetch(`https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys/${params.id}`)
         }
       ]
     },

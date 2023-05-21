@@ -43,7 +43,7 @@ const UpdateToys = () => {
     };
     console.log(submittedToys);
 
-    fetch(`http://localhost:5000/addedToys/${_id}`, {
+    fetch(`https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const MyToys = () => {
   const [usertoy, setUsertoy] = useState([]);
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/addedToys?email=${user?.email}`;
+  const url = `https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addedToys/${id}`, {
+        fetch(`https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -8,7 +8,7 @@ const ReactTabs = () => {
   const [displayedCards, setDisplayedCards] = useState(3);
 
   useEffect(() => {
-    fetch("http://localhost:5000/addedToys")
+    fetch("https://toy-marketplace-server-side-mahfuzhasan584-gmailcom.vercel.app/addedToys")
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
