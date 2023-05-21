@@ -48,12 +48,7 @@ const Blog = () => {
               What is MongoDB aggregate and how does it work
               </h2>
               <p className="pl-8">
-                Express is a minimal and flexible node. js web application
-                framework, providing a robust set of features for building
-                single and multi-page, and hybrid web applications. On the other
-                hand, Node. js is detailed as "A platform built on Chrome's
-                JavaScript runtime for easily building fast, scalable network
-                applications".
+              In MongoDB, the aggregate function is a powerful tool used to perform advanced data processing and analysis on collections. It allows you to execute a series of data transformation operations, known as pipeline stages, on the documents within a collection.
               </p>
             </div>
           </div>
