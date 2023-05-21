@@ -169,7 +169,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="font-bold text-lg tracking-wide text-teal-accent-400">
-                OTHERS
+                CONTACT US
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -177,7 +177,7 @@ const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                   >
-                    Robot
+                    Email : heroverse@gmail.com
                   </a>
                 </li>
                 <li>
@@ -185,7 +185,7 @@ const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                   >
-                    Cartoons
+                    Mobile : 01232323212
                   </a>
                 </li>
                 <li>
@@ -193,15 +193,7 @@ const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                   >
-                    Frictional
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                  >
-                    Star Wars
+                    Lnkdin : https://www.linkedin.com/feed/
                   </a>
                 </li>
               </ul>
