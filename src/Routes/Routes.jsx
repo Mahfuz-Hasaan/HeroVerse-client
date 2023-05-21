@@ -11,6 +11,7 @@ import About from "../Pages/About/About";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import SingleToyDetails from "../SubPages/SingleToyDetails/SingleToyDetails";
 import UpdateToys from "../Pages/UpdateToys/UpdateToys";
+import ErrorPage from "../Pages/ErrorPAge/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -62,5 +63,9 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path : "*",
+      element : <ErrorPage></ErrorPage> 
+    }
   ]);
 export default router  
