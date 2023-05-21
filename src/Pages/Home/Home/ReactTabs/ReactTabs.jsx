@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ReactTabs.css";
+import { Link } from "react-router-dom";
 
 const ReactTabs = () => {
   const [toys, setToys] = useState([]);
@@ -68,9 +69,9 @@ const ReactTabs = () => {
               <p>Quantity: {toy.quantity}</p>
             </div>
             <div>
-              <button className="button font-bold py-[4px] px-[8px] rounded-lg">
-                View Details
-              </button>
+            <Link to={`/alltoys/${toy._id}`}>
+                <button className="button p-2 rounded-lg">View Details</button>
+            </Link>
             </div>
           </div>
         ))}
