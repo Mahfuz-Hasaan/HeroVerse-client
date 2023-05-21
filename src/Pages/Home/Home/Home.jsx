@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from './Banner/Banner';
 import ImageGallary from './ImageGallary/ImageGallary';
+import ReactTabs from './ReactTabs/ReactTabs';
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <ImageGallary></ImageGallary>
+            <ReactTabs></ReactTabs>
         </div>
     );
 };

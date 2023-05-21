@@ -1,0 +1,54 @@
+.react-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .tab-button.active {
+    color: #fff;
+    background-color: #5c6ac4;
+    border-radius: 4px;
+  }
+  
+  .highlight-bar {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .first-tab {
+    transform: translateX(0);
+  }
+  
+  .second-tab {
+    transform: translateX(100px);
+  }
+  
+  .third-tab {
+    transform: translateX(200px);
+  }
+  
+  .tab-content {
+    margin-top: 20px;
+  }
+  .button{
+    background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
+    box-shadow: 0px 20px 24px 3px rgba(251, 161, 40, 0.42);
+  }
